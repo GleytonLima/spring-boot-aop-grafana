@@ -1,0 +1,6 @@
+Exemplos de campos derivados que podem ser configurados no data source do Loki na UI do Grafana.
+
+performance_id\[(.*?)\]performance_id
+performance_start_date\[(.*?)\]performance_start_date
+performance_end_date\[(.*?)\]performance_end_date
+performance_total_millis\[(.*?)\]performance_total_millis
