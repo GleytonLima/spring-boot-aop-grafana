@@ -3,7 +3,7 @@
 Esta é uma aplicação feita como prova de conceito (POC)
 para criação de logs de tempo execução de métodos 
 públicos de classes específicas de um projeto, 
-escolhidas pelo dev por meio de uma anotação ([@Monitor](./src/main/java/com/maolabs/forms/web/config/aop/Monitor.java)), 
+escolhidas pelo dev por meio de uma anotação ([@Monitor](src/main/java/com/maolabs/forms/external/primary/http/config/aop/Monitor.java)), 
 utilizando [AOP](https://en.wikipedia.org/wiki/Aspect-oriented_programming), 
 e mostrando os resultados no [Grafana](https://grafana.com/) 
 com auxílio do [Grafana Loki](https://grafana.com/oss/loki/) e [Promtail](https://grafana.com/docs/loki/latest/clients/promtail/). Loki é um sistema de agregação de logs inspirado no [Prometheus](https://prometheus.io/).
@@ -17,9 +17,17 @@ na performance de um caso de uso, por isso o escohido o gráfico de Gantt e Graf
 4. Possibilitar o filtro de uma única requisição, a partir dos logs, por isso Loki.
 
 Também estou utilizando esse projeto para estudo prático da 
-arquitetura `Hexagonal` (que bem que poderia se chamar `Poligonal`...).
+arquitetura [Hexagonal](https://alistair.cockburn.us/hexagonal-architecture/]) (que bem que poderia se chamar `Poligonal`...)
 
-![Docker rodando](./docs/example.gif)
+![Mostrando Grafico](./docs/example.gif)
+
+Arquitetura Hexagonal (in progress)
+
+![Rascunho Hexagonal](./docs/rascunho-01-hexagonal.png)
+
+Organização dos pacotes (in progress)
+
+![Pacotes](./docs/pacotes-organizacao.png)
 
 ## Como executar o projeto
 
@@ -120,9 +128,15 @@ Configure os campos (dimensões) que servirão de base para o gráfico de Gantt.
 
 Por fim será exibido o gráfico de Gantt que representa o fluxo 
 interno da aplicação, exibindo todas as classes que foram anotadas
-com [@Monitor](./src/main/java/com/maolabs/forms/web/config/aop/Monitor.java) (uma anotação customizada para ser usada como filtro nos logs via AOP).
+com [@Monitor](src/main/java/com/maolabs/forms/external/primary/http/config/aop/Monitor.java) (uma anotação customizada para ser usada como filtro nos logs via AOP).
 
 ![Docker rodando](./docs/grafico-gantt-final-v01.png)
+
+## Citações do artigo sobre arquitetura hexagonal
+
+"O padrão de portas e adaptadores é escrito deliberadamente fingindo que todas as portas são fundamentalmente semelhantes. Essa pretensão é útil no nível arquitetônico. Na implementação, portas e adaptadores aparecem em dois sabores, que chamarei de '' primário '' e '' secundário '', por razões que logo se tornarão óbvias. Eles também podem ser chamados de adaptadores '' condutores '' e adaptadores '' conduzidos ''."
+
+"A especificação funcional do aplicativo, talvez em casos de uso, é feita contra a interface do hexágono interno e não contra qualquer uma das tecnologias externas que podem ser usadas"
 
 ## Contribuindo
 
